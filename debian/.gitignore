@@ -1,0 +1,13 @@
+linuxcnc-uspace
+files
+rules
+control
+tmp
+linuxcnc
+linuxcnc-dev
+linuxcnc-uspace-dev
+linuxcnc-doc-*/
+*.substvars
+/linuxcnc*.files
+*.debhelper
+shlibs.local
