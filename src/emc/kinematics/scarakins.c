@@ -49,7 +49,7 @@ struct scara_data {
                 positive values mean downward movement.
    D4 = Horizontal distance between joint[1] axis and joint[2] axis, ie.
                 the length of the outer arm
-   joint[3] = End effector rotates around the same vertical axis that it
+   joint[5] = End effector rotates around the same vertical axis that it
                 slides along.  A value of zero means that the tooltip (if
                 offset from the axis) is pointing in the same direction
                 as the centerline of the outer arm.
@@ -70,7 +70,7 @@ struct scara_data {
 #define D5 (*(haldata->d5))
 #define D6 (*(haldata->d6))
 
-/* joint[0], joint[1] and joint[3] are in degrees and joint[2] is in length units */
+/* joint[0], joint[1] and joint[5] are in degrees and joint[2] is in length units */
 int scaraKinematicsForward(const double * joint,
                       EmcPose * world,
                       const KINEMATICS_FORWARD_FLAGS * fflags,
@@ -83,7 +83,7 @@ int scaraKinematicsForward(const double * joint,
 
     a0 = joint[0] * ( PM_PI / 180 );
     a1 = joint[1] * ( PM_PI / 180 );
-    a3 = joint[3] * ( PM_PI / 180 );
+    a3 = joint[5] * ( PM_PI / 180 );
 /* convert angles into world coords */
 
     a1 = a1 + a0;
@@ -103,8 +103,8 @@ int scaraKinematicsForward(const double * joint,
     world->tran.z = z;
     world->c = c * 180 / PM_PI;
 
-    world->a = joint[4];
-    world->b = joint[5];
+    world->a = joint[3];
+    world->b = joint[4];
 
     return (0);
 } //scaraKinematicsForward()
@@ -160,9 +160,9 @@ int scaraKinematicsInverse(const EmcPose * world,
     joint[0] = q0;
     joint[1] = q1;
     joint[2] = D1 + D3 - D5 - z;
-    joint[3] = c - ( q0 + q1);
-    joint[4] = world->a;
-    joint[5] = world->b;
+    joint[5] = c - ( q0 + q1);
+    joint[3] = world->a;
+    joint[4] = world->b;
 
     *fflags = 0;
 
@@ -214,7 +214,7 @@ int switchkinsSetup(kparms* kp,
 {
     kp->kinsname    = "scarakins"; // !!! must agree with filename
     kp->halprefix   = "scarakins"; // hal pin names
-    kp->required_coordinates = "xyzc";
+    kp->required_coordinates = "xyzabc";
     kp->allow_duplicates     = 0;
     kp->max_joints = strlen(kp->required_coordinates);
 
