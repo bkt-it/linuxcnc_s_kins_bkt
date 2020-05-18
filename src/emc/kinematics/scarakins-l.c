@@ -70,7 +70,7 @@ struct scara_data {
 #define D5 (*(haldata->d5))
 #define D6 (*(haldata->d6))
 
-/* joint[0], joint[1] and joint[3] are in degrees and joint[2] is in length units */
+/* joint[0], joint[1], joint[5], joint[3] and joint[4] are in degrees and joint[2] is in length units */
 int scaraKinematicsForward(const double * joint,
                       EmcPose * world,
                       const KINEMATICS_FORWARD_FLAGS * fflags,
@@ -169,12 +169,12 @@ int scaraKinematicsInverse(const EmcPose * world,
     return (0);
 } // scaraKinematicsInverse()
 
-#define DEFAULT_D1 490
-#define DEFAULT_D2 340
-#define DEFAULT_D3  50
-#define DEFAULT_D4 250
-#define DEFAULT_D5  50
-#define DEFAULT_D6  50
+#define DEFAULT_D1 2400
+#define DEFAULT_D2 800
+#define DEFAULT_D3 100
+#define DEFAULT_D4 750
+#define DEFAULT_D5 250
+#define DEFAULT_D6 0
 
 int scaraKinematicsSetup(const  int   comp_id,
                          const  char* coordinates,
@@ -185,12 +185,12 @@ int scaraKinematicsSetup(const  int   comp_id,
     haldata = hal_malloc(sizeof(*haldata));
     if (!haldata) goto error;
 
-    res += hal_pin_float_new("scarakins.D1", HAL_IO, &(haldata->d1), comp_id);
-    res += hal_pin_float_new("scarakins.D2", HAL_IO, &(haldata->d2), comp_id);
-    res += hal_pin_float_new("scarakins.D3", HAL_IO, &(haldata->d3), comp_id);
-    res += hal_pin_float_new("scarakins.D4", HAL_IO, &(haldata->d4), comp_id);
-    res += hal_pin_float_new("scarakins.D5", HAL_IO, &(haldata->d5), comp_id);
-    res += hal_pin_float_new("scarakins.D6", HAL_IO, &(haldata->d6), comp_id);
+    res += hal_pin_float_new("scarakins-l.D1", HAL_IO, &(haldata->d1), comp_id);
+    res += hal_pin_float_new("scarakins-l.D2", HAL_IO, &(haldata->d2), comp_id);
+    res += hal_pin_float_new("scarakins-l.D3", HAL_IO, &(haldata->d3), comp_id);
+    res += hal_pin_float_new("scarakins-l.D4", HAL_IO, &(haldata->d4), comp_id);
+    res += hal_pin_float_new("scarakins-l.D5", HAL_IO, &(haldata->d5), comp_id);
+    res += hal_pin_float_new("scarakins-l.D6", HAL_IO, &(haldata->d6), comp_id);
     if (res) { goto error; }
 
     D1 = DEFAULT_D1;
@@ -212,8 +212,8 @@ int switchkinsSetup(kparms* kp,
                     KI* kinv0, KI* kinv1, KI* kinv2
                    )
 {
-    kp->kinsname    = "scarakins"; // !!! must agree with filename
-    kp->halprefix   = "scarakins"; // hal pin names
+    kp->kinsname    = "scarakins-l"; // !!! must agree with filename
+    kp->halprefix   = "scarakins-l"; // hal pin names
     kp->required_coordinates = "xyzabc";
     kp->allow_duplicates     = 0;
     kp->max_joints = strlen(kp->required_coordinates);
