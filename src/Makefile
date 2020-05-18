@@ -1231,6 +1231,9 @@ endif
 ../rtlib/xyzac-trt-kins$(MODULE_EXT): $(addprefix objects/rt,$(xyzac-trt-kins-objs))
 ../rtlib/xyzbc-trt-kins$(MODULE_EXT): $(addprefix objects/rt,$(xyzbc-trt-kins-objs))
 ../rtlib/scarakins$(MODULE_EXT):      $(addprefix objects/rt,$(scarakins-objs))
+../rtlib/scarakins4$(MODULE_EXT):      $(addprefix objects/rt,$(scarakins4-objs))
+../rtlib/scarakins10$(MODULE_EXT):      $(addprefix objects/rt,$(scarakins10-objs))
+../rtlib/scarakins11$(MODULE_EXT):      $(addprefix objects/rt,$(scarakins11-objs))
 ../rtlib/pumakins$(MODULE_EXT):       $(addprefix objects/rt,$(pumakins-objs))
 #----------------------------------------------------------------
 
