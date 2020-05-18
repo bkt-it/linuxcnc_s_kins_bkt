@@ -4,6 +4,9 @@ kinematics_srcs = files([
 'genserkins.c',
 'pumakins.c',
 'scarakins.c',
+'scarakins4.c',
+'scarakins10.c',
+'scarakins11.c',
 'trivkins.c',
 'cubic.c',
 'genhexkins.c',
@@ -32,3 +35,9 @@ genserkins_srcs  = files('genserkins.c')
 pumakins_srcs  = files('pumakins.c')
 
 scarakins_srcs  = files('scarakins.c')
+
+scarakins4_srcs  = files('scarakins4.c')
+
+scarakins10_srcs  = files('scarakins10.c')
+
+scarakins11_srcs  = files('scarakins11.c')
