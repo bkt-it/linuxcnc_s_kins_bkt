@@ -186,6 +186,7 @@ class GetIniInfo:
             # I.e.
             # pumakins = 6 axis XYZABC
             # scarakins = 4 axis XYZA
+            # scarakins4-10-11 = 4 axis XYZABC
             # genhexkins = 6 axis XYZABC
             return False
 
