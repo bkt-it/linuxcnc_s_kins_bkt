@@ -185,12 +185,12 @@ int scaraKinematicsSetup(const  int   comp_id,
     haldata = hal_malloc(sizeof(*haldata));
     if (!haldata) goto error;
 
-    res += hal_pin_float_new("scarakins10.D1", HAL_IO, &(haldata->d1), comp_id);
-    res += hal_pin_float_new("scarakins10.D2", HAL_IO, &(haldata->d2), comp_id);
-    res += hal_pin_float_new("scarakins10.D3", HAL_IO, &(haldata->d3), comp_id);
-    res += hal_pin_float_new("scarakins10.D4", HAL_IO, &(haldata->d4), comp_id);
-    res += hal_pin_float_new("scarakins10.D5", HAL_IO, &(haldata->d5), comp_id);
-    res += hal_pin_float_new("scarakins10.D6", HAL_IO, &(haldata->d6), comp_id);
+    res += hal_pin_float_new("scarakins11.D1", HAL_IO, &(haldata->d1), comp_id);
+    res += hal_pin_float_new("scarakins11.D2", HAL_IO, &(haldata->d2), comp_id);
+    res += hal_pin_float_new("scarakins11.D3", HAL_IO, &(haldata->d3), comp_id);
+    res += hal_pin_float_new("scarakins11.D4", HAL_IO, &(haldata->d4), comp_id);
+    res += hal_pin_float_new("scarakins11.D5", HAL_IO, &(haldata->d5), comp_id);
+    res += hal_pin_float_new("scarakins11.D6", HAL_IO, &(haldata->d6), comp_id);
     if (res) { goto error; }
 
     D1 = DEFAULT_D1;
@@ -212,8 +212,8 @@ int switchkinsSetup(kparms* kp,
                     KI* kinv0, KI* kinv1, KI* kinv2
                    )
 {
-    kp->kinsname    = "scarakins10"; // !!! must agree with filename
-    kp->halprefix   = "scarakins10"; // hal pin names
+    kp->kinsname    = "scarakins11"; // !!! must agree with filename
+    kp->halprefix   = "scarakins11"; // hal pin names
     kp->required_coordinates = "xyzabc";
     kp->allow_duplicates     = 0;
     kp->max_joints = strlen(kp->required_coordinates);
