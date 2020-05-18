@@ -51,7 +51,7 @@ set ::HR(comps,motion)       [list motion axis joint spindle]
 
 # kinematics modules that export hal pins:
 # (kinematics are invoked by motion module (motmod))
-set ::HR(comps,kinematics)   [list tripodkins scarakins rotatekins maxkins \
+set ::HR(comps,kinematics)   [list tripodkins scarakins scarakins4 scarakins10 scarakins11 rotatekins maxkins \
                                    genserkins genhexkins \
                                    xyzbc-trt-kins xyzac-trt-kins \
                                    rosekins 5axiskins pumakins \
