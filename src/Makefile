@@ -1061,6 +1061,30 @@ scarakins-objs += emc/kinematics/kins_util.o
 scarakins-objs += emc/kinematics/switchkins.o
 scarakins-objs += $(USERKFUNCS)
 
+obj-m += scarakins4.o
+scarakins4-objs := emc/kinematics/scarakins4.o
+scarakins4-objs += libnml/posemath/_posemath.o
+scarakins4-objs += libnml/posemath/sincos.o $(MATHSTUB)
+scarakins4-objs += emc/kinematics/kins_util.o
+scarakins4-objs += emc/kinematics/switchkins.o
+scarakins4-objs += $(USERKFUNCS)
+
+obj-m += scarakins10.o
+scarakins10-objs := emc/kinematics/scarakins10.o
+scarakins10-objs += libnml/posemath/_posemath.o
+scarakins10-objs += libnml/posemath/sincos.o $(MATHSTUB)
+scarakins10-objs += emc/kinematics/kins_util.o
+scarakins10-objs += emc/kinematics/switchkins.o
+scarakins10-objs += $(USERKFUNCS)
+
+obj-m += scarakins11.o
+scarakins11-objs := emc/kinematics/scarakins11.o
+scarakins11-objs += libnml/posemath/_posemath.o
+scarakins11-objs += libnml/posemath/sincos.o $(MATHSTUB)
+scarakins11-objs += emc/kinematics/kins_util.o
+scarakins11-objs += emc/kinematics/switchkins.o
+scarakins11-objs += $(USERKFUNCS)
+
 obj-m += pumakins.o
 pumakins-objs := emc/kinematics/pumakins.o
 pumakins-objs += libnml/posemath/_posemath.o
